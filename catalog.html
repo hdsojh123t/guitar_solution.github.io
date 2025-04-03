@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Электрогитары и примочки - Каталог</title>
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        body {
+            background-color: #000;
+            color: #ddd;
+            line-height: 1.6;
+            background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-blend-mode: overlay;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Гранж эффекты */
+        .grunge-border {
+            position: relative;
+        }
+        
+        .grunge-border::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 14px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="14" viewBox="0 0 100 14"><path d="M0,0 Q25,14 50,0 T100,0" fill="none" stroke="%23ff0000" stroke-width="2" stroke-opacity="0.5"/></svg>');
+            background-repeat: repeat-x;
+        }
+        
+        .grunge-overlay {
+            background: 
+                linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('https://www.transparenttextures.com/patterns/black-paper.png');
+        }
+        
+        /* Шапка */
+        header {
+            background-color: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 20px 0;
+            border-bottom: 2px solid #ff0000;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, 
+                    transparent 45%, 
+                    rgba(255,0,0,0.1) 45%, 
+                    rgba(255,0,0,0.1) 55%, 
+                    transparent 55%);
+            pointer-events: none;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff0000;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0 #000;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #ff0000;
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .logo span {
+            color: #fff;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        .nav-links li::before {
+            content: '//';
+            color: #ff0000;
+            position: absolute;
+            left: -15px;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        
+        .nav-links a:hover {
+            color: #ff0000;
+        }
+        
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #ff0000;
+            color: #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        /* Корзина */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            border-left: 2px solid #ff0000;
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+            box-shadow: -5px 0 15px rgba(255,0,0,0.3);
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ff0000;
+        }
+        
+        .cart-title {
+            font-size: 24px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-cart:hover {
+            color: #ff0000;
+        }
+        
+        .cart-items {
+            margin-bottom: 20px;
+        }
+        
+        .cart-item {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 1px solid #333;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-price {
+            color: #ff0000;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+        }
+        
+        .quantity-btn {
+            background: #333;
+            color: #fff;
+            border: none;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            background: #222;
+            color: #fff;
+            border: 1px solid #333;
+            margin: 0 5px;
+            padding: 5px;
+        }
+        
+        .remove-item {
+            background: none;
+            border: none;
+            color: #777;
+            cursor: pointer;
+            margin-top: 5px;
+            font-size: 12px;
+            transition: color 0.3s;
+        }
+        
+        .remove-item:hover {
+            color: #ff0000;
+        }
+        
+        .cart-total {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #ff0000;
+            text-align: right;
+        }
+        
+        .total-price {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        
+        .total-price span {
+            color: #ff0000;
+            font-weight: bold;
+        }
+        
+        .checkout-btn {
+            background: #ff0000;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .checkout-btn:hover {
+            background: #cc0000;
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 40px 0;
+            color: #777;
+        }
+        
+        /* Форма оформления заказа */
+        .checkout-form {
+            display: none;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #fff;
+            font-size: 14px;
+        }
+        
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            background: #222;
+            border: 1px solid #333;
+            color: #fff;
+            font-size: 14px;
+        }
+        
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff0000;
+        }
+        
+        .back-to-cart {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .back-to-cart:hover {
+            background: #444;
+        }
+        
+        .order-success {
+            display: none;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .order-success h3 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .order-success p {
+            color: #bbb;
+            margin-bottom: 20px;
+        }
+        
+        .order-success-icon {
+            font-size: 50px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        
+        /* Основной контент */
+        .catalog-section {
+            padding: 80px 0;
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .catalog-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            border: 1px solid #ff0000;
+            box-shadow: 0 0 20px rgba(255,0,0,0.3);
+            z-index: -1;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+            color: #fff;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: #ff0000;
+            margin: 15px auto;
+            box-shadow: 0 0 10px rgba(255,0,0,0.5);
+        }
+        
+        /* Фильтры */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            background: rgba(30,30,30,0.8);
+            border: 1px solid #333;
+            color: #ddd;
+            padding: 8px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: #ff0000;
+            color: #fff;
+            border-color: #ff0000;
+        }
+        
+        /* Товары */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .product-card {
+            background: rgba(20,20,20,0.9);
+            border: 1px solid #ff0000;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s;
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 45%, rgba(255,0,0,0.1) 45%, rgba(255,0,0,0.1) 55%, transparent 55%);
+            pointer-events: none;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255,0,0,0.3);
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+            filter: grayscale(30%) contrast(120%);
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+            filter: grayscale(0%) contrast(100%);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff0000;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        
+        .product-brand {
+            color: #ff0000;
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .product-description {
+            color: #bbb;
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .product-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: #777;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        
+        .add-to-cart {
+            background: #ff0000;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        
+        .add-to-cart:hover {
+            background: #cc0000;
+        }
+        
+        /* Пагинация */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            gap: 10px;
+        }
+        
+        .page-link {
+            background: rgba(30,30,30,0.8);
+            border: 1px solid #333;
+            color: #ddd;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .page-link:hover, .page-link.active {
+            background: #ff0000;
+            color: #fff;
+            border-color: #ff0000;
+        }
+        
+        /* Подвал */
+        footer {
+            background-color: rgba(0,0,0,0.9);
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 2px solid #ff0000;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, 
+                    transparent 45%, 
+                    rgba(255,0,0,0.05) 45%, 
+                    rgba(255,0,0,0.05) 55%, 
+                    transparent 55%);
+            pointer-events: none;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            padding: 0 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #ff0000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer-section p, 
+        .footer-section a {
+            color: #bbb;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #ff0000;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 20px;
+            color: #fff;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #ff0000;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            border-top: 1px solid #ff0000;
+            padding-top: 20px;
+            color: #bbb;
+            position: relative;
+        }
+        
+        .copyright::before {
+            content: '♫';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #000;
+            padding: 0 10px;
+            color: #ff0000;
+        }
+        
+        /* Анимации */
+        @keyframes flicker {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+        
+        .flicker {
+            animation: flicker 3s infinite;
+        }
+        
+        /* Уведомление о добавлении в корзину */
+        .cart-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.9);
+            color: #fff;
+            padding: 15px 25px;
+            border: 1px solid #ff0000;
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(255,0,0,0.3);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .cart-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .cart-modal {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="grunge-overlay">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Электрогитары<span> и примочки</span></a>
+                <ul class="nav-links">
+                    <li><a href="catalog.html#catalog">Каталог</a></li>
+                    <li><a href="contact.html">О нас</a></li>
+                    <li><a href="about.html">Контакты</a></li>
+                    <li>
+                        <div class="cart-icon" id="cartIcon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Корзина -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3 class="cart-title">Ваша корзина</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Товары будут добавляться сюда -->
+            <div class="empty-cart">Ваша корзина пуста</div>
+        </div>
+        <div class="cart-total">
+            <div class="total-price">Итого: <span id="totalPrice">0</span> ₽</div>
+            <button class="checkout-btn" id="checkoutBtn">Оформить заказ</button>
+        </div>
+        
+        <!-- Форма оформления заказа -->
+        <div class="checkout-form" id="checkoutForm">
+            <h3>Данные для заказа</h3>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="name">ФИО:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон:</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Адрес доставки:</label>
+                    <input type="text" id="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Комментарий к заказу:</label>
+                    <textarea id="comment" rows="3"></textarea>
+                </div>
+                <button type="submit" class="checkout-btn">Подтвердить заказ</button>
+                <button type="button" class="back-to-cart" id="backToCart">Вернуться в корзину</button>
+            </form>
+        </div>
+        
+        <!-- Сообщение об успешном заказе -->
+        <div class="order-success" id="orderSuccess">
+            <div class="order-success-icon">✓</div>
+            <h3>Заказ оформлен!</h3>
+            <p>Спасибо за ваш заказ. Мы свяжемся с вами в ближайшее время для подтверждения.</p>
+            <button class="checkout-btn" id="closeAfterOrder">Закрыть</button>
+        </div>
+    </div>
+    
+    <!-- Уведомление о добавлении в корзину -->
+    <div class="cart-notification" id="cartNotification">
+        Товар добавлен в корзину
+    </div>
+    
+    <!-- Каталог -->
+    <section class="catalog-section grunge-overlay flicker">
+        <div class="container">
+            <h2 class="section-title grunge-border">Наш каталог</h2>
+            
+            <!-- Фильтры -->
+            <div class="filters">
+                <button class="filter-btn active" data-category="all">Все</button>
+                <button class="filter-btn" data-category="guitars">Гитары</button>
+                <button class="filter-btn" data-category="effects">Примочки</button>
+                <button class="filter-btn" data-category="amps">Усилители</button>
+                <button class="filter-btn" data-category="accessories">Аксессуары</button>
+            </div>
+            
+            <!-- Товары -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Товары будут добавляться сюда через JavaScript -->
+            </div>
+            
+            <!-- Пагинация -->
+            <div class="pagination">
+                <button class="page-link active">1</button>
+                <button class="page-link">2</button>
+                <button class="page-link">3</button>
+                <button class="page-link">4</button>
+                <button class="page-link">5</button>
+                <button class="page-link">→</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Подвал -->
+    <footer class="grunge-overlay">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>О компании</h3>
+                    <p>"Электрогитары и примочки" - это магазин для настоящих ценителей качественного музыкального оборудования.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>г. Москва, ул. Музыкальная, 15</p>
+                    <p>+7 (495) 123-45-67</p>
+                    <p>info@electroguitars.ru</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Социальные сети</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i> VK</a>
+                        <a href="#"><i class="fab fa-telegram"></i> Telegram</a>
+                        <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Электрогитары и примочки. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Иконки Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <script>
+        // Данные товаров
+        const products = [
+            {
+                id: 1,
+                title: "Gibson Les Paul Standard",
+                brand: "Gibson",
+                category: "guitars",
+                price: 199999,
+                oldPrice: 250000,
+                description: "Легендарная модель с тоном, который изменил историю музыки. Корпус из красного дерева, топ из клена.",
+                image: "https://images.unsplash.com/photo-1558098329-a11cff621064?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                badge: "Хит"
+            },
+            {
+                id: 2,
+                title: "Fender Stratocaster American Pro",
+                brand: "Fender",
+                category: "guitars",
+                price: 145000,
+                description: "Классическая модель с тремя синглами и тремоло. Звук, который узнают миллионы.",
+                image: "https://images.unsplash.com/photo-1516924962500-2b4b3b99ea02?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 3,
+                title: "Boss DS-1 Distortion",
+                brand: "Boss",
+                category: "effects",
+                price: 5999,
+                oldPrice: 7500,
+                description: "Культовая педаль дисторшна, которая использовалась бесчисленным количеством гитаристов.",
+                image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+                badge: "-20%"
+            },
+            {
+                id: 4,
+                title: "Marshall JCM800 2203",
+                brand: "Marshall",
+                category: "amps",
+                price: 120000,
+                description: "Легендарный ламповый усилитель, который задал стандарт хард-рок и метал звучания.",
+                image: "https://images.unsplash.com/photo-1596727147705-61a532a659bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 5,
+                title: "Ibanez RG550 Genesis",
+                brand: "Ibanez",
+                category: "guitars",
+                price: 85000,
+                description: "Икона метал-сцены с тонким грифом и хамбакерами для агрессивного звучания.",
+                image: "https://images.unsplash.com/photo-1519682577862-22b62b24e493?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 6,
+                title: "TC Electronic Flashback 2",
+                brand: "TC Electronic",
+                category: "effects",
+                price: 12500,
+                description: "Многофункциональная педаль задержки с аналоговым, ленточным и цифровым режимами.",
+                image: "https://images.unsplash.com/photo-1615826932727-ed9f182ac67e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 7,
+                title: "Ernie Ball Regular Slinky",
+                brand: "Ernie Ball",
+                category: "accessories",
+                price: 899,
+                description: "Набор струн Regular Slinky (.010-.046) - самый популярный выбор гитаристов.",
+                image: "https://images.unsplash.com/photo-1605020420620-20c943cc4669?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 8,
+                title: "Dunlop Tortex Standard 0.73mm",
+                brand: "Dunlop",
+                category: "accessories",
+                price: 150,
+                description: "Медиаторы Tortex Standard толщиной 0.73 мм с отличным сцеплением и долговечностью.",
+                image: "https://images.unsplash.com/photo-1605020420408-1d043841e881?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 9,
+                title: "PRS SE Custom 24",
+                brand: "PRS",
+                category: "guitars",
+                price: 95000,
+                description: "Отличное сочетание цены и качества с фирменными звукоснимателями PRS.",
+                image: "https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 10,
+                title: "Electro-Harmonix Big Muff Pi",
+                brand: "Electro-Harmonix",
+                category: "effects",
+                price: 6500,
+                description: "Культовая педаль фузза, которая определяла звук альтернативного рока 90-х.",
+                image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 11,
+                title: "Orange Crush 20",
+                brand: "Orange",
+                category: "amps",
+                price: 22500,
+                description: "Компактный транзисторный комбоусилитель с характерным оранжевым звучанием.",
+                image: "https://images.unsplash.com/photo-1596727147705-61a532a659bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 12,
+                title: "Levy's Leathers Guitar Strap",
+                brand: "Levy's",
+                category: "accessories",
+                price: 3500,
+                description: "Кожаный ремень для гитары премиум-класса с регулируемой длиной.",
+                image: "https://images.unsplash.com/photo-1605020420408-1d043841e881?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+            }
+        ];
+
+        // Корзина
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // DOM элементы
+        const productsGrid = document.getElementById('productsGrid');
+        const cartModal = document.getElementById('cartModal');
+        const cartItems = document.getElementById('cartItems');
+        const cartCount = document.getElementById('cartCount');
+        const totalPrice = document.getElementById('totalPrice');
+        const cartIcon = document.getElementById('cartIcon');
+        const closeCart = document.getElementById('closeCart');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const checkoutForm = document.getElementById('checkoutForm');
+        const orderForm = document.getElementById('orderForm');
+        const backToCart = document.getElementById('backToCart');
+        const orderSuccess = document.getElementById('orderSuccess');
+        const closeAfterOrder = document.getElementById('closeAfterOrder');
+        const cartNotification = document.getElementById('cartNotification');
+        
+        // Инициализация при загрузке
+        document.addEventListener('DOMContentLoaded', () => {
+            displayProducts();
+            updateCart();
+            
+            // Обработчики событий
+            cartIcon.addEventListener('click', toggleCart);
+            closeCart.addEventListener('click', toggleCart);
+            checkoutBtn.addEventListener('click', showCheckoutForm);
+            backToCart.addEventListener('click', showCart);
+            orderForm.addEventListener('submit', submitOrder);
+            closeAfterOrder.addEventListener('click', closeCartAfterOrder);
+            
+            // Фильтрация товаров
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const category = btn.dataset.category;
+                    displayProducts(category);
+                });
+            });
+        });
+        
+        // Отображение товаров
+        function displayProducts(category = 'all') {
+            productsGrid.innerHTML = '';
+            
+            const filteredProducts = category === 'all' 
+                ? products 
+                : products.filter(product => product.category === category);
+            
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.dataset.category = product.category;
+                
+                let badge = '';
+                if (product.badge) {
+                    badge = `<div class="product-badge">${product.badge}</div>`;
+                }
+                
+                let oldPrice = '';
+                if (product.oldPrice) {
+                    oldPrice = `<span class="old-price">${product.oldPrice.toLocaleString()} ₽</span>`;
+                }
+                
+                productCard.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.title}">
+                        ${badge}
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.title}</h3>
+                        <div class="product-brand">${product.brand}</div>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-price">
+                            <div>
+                                ${oldPrice}
+                                <span class="price">${product.price.toLocaleString()} ₽</span>
+                            </div>
+                            <button class="add-to-cart" data-id="${product.id}">В корзину</button>
+                        </div>
+                    </div>
+                `;
+                
+                productsGrid.appendChild(productCard);
+            });
+            
+            // Добавление обработчиков событий для кнопок "В корзину"
+            document.querySelectorAll('.add-to-cart').forEach(btn => {
+                btn.addEventListener('click', addToCart);
+            });
+        }
+        
+        // Добавление товара в корзину
+        function addToCart(e) {
+            const productId = parseInt(e.target.dataset.id);
+            const product = products.find(p => p.id === productId);
+            
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
+            }
+            
+            // Сохраняем корзину в localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            updateCart();
+            showCartNotification();
+        }
+        
+        // Обновление корзины
+        function updateCart() {
+            // Обновление счетчика
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = count;
+            
+            // Обновление содержимого корзины
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<div class="empty-cart">Ваша корзина пуста</div>';
+                totalPrice.textContent = '0';
+                return;
+            }
+            
+            cartItems.innerHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" class="cart-item-img">
+                    <div class="cart-item-details">
+                        <h4 class="cart-item-title">${item.title}</h4>
+                        <div class="cart-item-price">${item.price.toLocaleString()} ₽</div>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                            <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-id="${item.id}">
+                            <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                        </div>
+                        <button class="remove-item" data-id="${item.id}">Удалить</button>
+                    </div>
+                `;
+                
+                cartItems.appendChild(cartItem);
+            });
+            
+            // Обновление общей суммы
+            totalPrice.textContent = total.toLocaleString();
+            
+            // Добавление обработчиков событий для кнопок в корзине
+            document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+                btn.addEventListener('click', decreaseQuantity);
+            });
+            
+            document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+                btn.addEventListener('click', increaseQuantity);
+            });
+            
+            document.querySelectorAll('.quantity-input').forEach(input => {
+                input.addEventListener('change', updateQuantity);
+            });
+            
+            document.querySelectorAll('.remove-item').forEach(btn => {
+                btn.addEventListener('click', removeItem);
+            });
+        }
+        
+        // Увеличение количества товара
+        function increaseQuantity(e) {
+            const productId = parseInt(e.target.dataset.id);
+            const item = cart.find(item => item.id === productId);
+            item.quantity += 1;
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart();
+        }
+        
+        // Уменьшение количества товара
+        function decreaseQuantity(e) {
+            const productId = parseInt(e.target.dataset.id);
+            const item = cart.find(item => item.id === productId);
+            
+            if (item.quantity > 1) {
+                item.quantity -= 1;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCart();
+            }
+        }
+        
+        // Обновление количества товара
+        function updateQuantity(e) {
+            const productId = parseInt(e.target.dataset.id);
+            const item = cart.find(item => item.id === productId);
+            const newQuantity = parseInt(e.target.value);
+            
+            if (newQuantity > 0) {
+                item.quantity = newQuantity;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCart();
+            } else {
+                e.target.value = item.quantity;
+            }
+        }
+        
+        // Удаление товара из корзины
+        function removeItem(e) {
+            const productId = parseInt(e.target.dataset.id);
+            cart = cart.filter(item => item.id !== productId);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart();
+        }
+        
+        // Переключение видимости корзины
+        function toggleCart() {
+            cartModal.style.display = cartModal.style.display === 'block' ? 'none' : 'block';
+        }
+        
+        // Показать форму оформления заказа
+        function showCheckoutForm() {
+            if (cart.length === 0) return;
+            
+            document.querySelector('.cart-items').style.display = 'none';
+            document.querySelector('.cart-total').style.display = 'none';
+            checkoutForm.style.display = 'block';
+        }
+        
+        // Вернуться к корзине
+        function showCart() {
+            document.querySelector('.cart-items').style.display = 'block';
+            document.querySelector('.cart-total').style.display = 'block';
+            checkoutForm.style.display = 'none';
+            orderSuccess.style.display = 'none';
+        }
+        
+   // Отправка заказа
+function submitOrder(e) {
+    e.preventDefault();
+    
+    // Собираем данные формы
+    const formData = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        address: document.getElementById('address').value,
+        comment: document.getElementById('comment').value,
+        items: cart.map(item => `${item.title} (${item.quantity} шт.) - ${item.price.toLocaleString()} ₽`).join('\n'),
+        total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toLocaleString() + ' ₽',
+        order_date: new Date().toLocaleString()
+    };
+
+    // Отправка через EmailJS
+    emailjs.send('service_6qupcw8', 'template_ffw58jh', formData)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            
+            // Показываем сообщение об успешном заказе
+            checkoutForm.style.display = 'none';
+            orderSuccess.style.display = 'block';
+            
+            // Очищаем корзину
+            cart = [];
+            localStorage.removeItem('cart');
+            updateCart();
+        }, function(error) {
+            console.log('FAILED...', error);
+            alert('Произошла ошибка при отправке заказа. Пожалуйста, попробуйте еще раз или свяжитесь с нами по телефону.');
+        });
+}
+        
+        // Закрыть корзину после оформления заказа
+        function closeCartAfterOrder() {
+            cartModal.style.display = 'none';
+            showCart(); // Возвращаем вид корзины к исходному состоянию
+        }
+        
+        // Показать уведомление о добавлении в корзину
+        function showCartNotification() {
+            cartNotification.classList.add('show');
+            
+            setTimeout(() => {
+                cartNotification.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+    <!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  // Инициализация EmailJS с вашим Public Key
+  emailjs.init('gk4NANl8xZxwMxjS-'); // Замените на ваш ключ из EmailJS
+</script>
+</body>
+</html>

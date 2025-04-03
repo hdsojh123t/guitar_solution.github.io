@@ -1,0 +1,496 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    scroll-behavior: smooth;
+}
+
+/* Первый блок: фоновая гифка и кнопки */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://media1.tenor.com/m/ql7G2UkhARAAAAAC/plucking-a-guitar-red-hot-chili-peppers.gif') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.h1 {
+    font-size: 4rem;
+    color: #ff0000;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Адаптивность для слоганов */
+@media (max-width: 768px) {
+    .h1 {
+        font-size: 2.5rem;
+    }
+    
+    .h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* Второй блок: каталог товаров */
+main {
+    padding: 20px;
+    background-color: #000000; /* White background */
+    color: #000; /* Black text */
+    position: relative;
+    z-index: 2;
+    
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 колонок */
+    gap: 20px; /* Уменьшенное расстояние между карточками */
+    width: 100%;
+    max-width: 1200px; /* Максимальная ширина сетки */
+    margin: 0 auto; /* Центрирование сетки */
+}
+
+.product-item {
+    background-color: #fff; /* White */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White shadow */
+    text-align: center;
+    padding: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px; /* Скруглённые углы */
+    overflow: hidden; /* Обрезаем изображение, если оно выходит за пределы */
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.product-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.9); /* Black glow */
+}
+
+.product-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Скруглённые углы изображения */
+    object-fit: cover; /* Обрезка изображения, чтобы оно всегда заполняло область */
+}
+
+.product-item h3 {
+    margin: 10px 0;
+    color: #000; /* Black text */
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.product-item a {
+    text-decoration: none; /* Убираем синее подчёркивание */
+    color: #000; /* Black text */
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.product-item button {
+    background-color: #000; /* Black */
+    color: #fff; /* White text */
+    padding: 6px;
+    margin: 6px;
+    border-radius: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+.social-links a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 20px;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    color: #ff0000;
+    transform: translateY(-3px);
+}
+footer {
+    background-color: rgba(0,0,0,0.9);
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    border-top: 2px solid #ff0000;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(45deg, 
+            transparent 45%, 
+            rgba(255,0,0,0.05) 45%, 
+            rgba(255,0,0,0.05) 55%, 
+            transparent 55%);
+    pointer-events: none;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #ff0000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-section p, 
+.footer-section a {
+    color: #bbb;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #ff0000;
+}
+.thong{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 35px;
+    color: red;
+}
+
+/*Обратная связь для чайников*/
+.container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 20px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  /* Стили самой формы */
+  .content {
+    display: flex; /* делаем колонки в ряд */
+    align-items: center; /* выравниваем по центру */
+    justify-content: space-between; /* колонки растянутся на всю ширину */
+    background: #fff;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  
+  /* Контейнер для input'ов формы */
+  .input-box {
+    height: 50px; /* по сути задаем высоту input'а */
+    width: 60%; /* ширина на всю ширину правой колонки (с учетом padding) */
+    margin-bottom: 30px; /* отступаем снизу 20px */
+  }
+  
+  /* Стили для input и textarea (поле сообщение) */
+  .input-box input,
+  .input-box textarea {
+    height: 100%; /* растягиваем на всю высоту контейнера 50px */
+    width: 100%; /* растягиваем на всю ширину */
+    border: none; /* убираем внешние края */
+    border-radius: 5px; /* скругляем края */
+    background: #f0f1f8; /* задаем цвет фона */
+    padding: 0px 20px; /* отступ справа и слева 20px */
+    margin-left: 30%;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  /* Отдельно стилизуем поле сообщение */
+  .input-box textarea {
+    resize: none; /* чтобы нельзя было менять высоту */
+    padding: 40px;
+    font-family: 'Courier New', Courier, monospace;    
+}
+  
+  /* Это контейнер для поля сообщение */
+  .message-box {
+    min-height: 10px; /* минимальная высота 110px */
+    align-items: center;
+
+  }
+  
+  /* Стили для контейнера кнопки */
+  .button {
+    display: inline-block; /* делаем блочно-строчный элемент */
+    padding-top: 70px;
+  }
+  
+  /* Стили для самой кнопки */
+  .button input[type="button"] {
+    color: #fff;
+    font-size: 18px;
+    background: #3e2093;
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 7px;
+    transition: 0.2s; /* чтобы плавно менялся цвет при наведении (:hover) */
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  /* Меняем цвет фона при наведении на кнопку */
+  .button input[type="button"]:hover {
+    background: rgb(0, 0, 207);}
+/*Конец связи для чайников*/
+
+.grunge-overlay {
+    background: 
+        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+        url('https://www.transparenttextures.com/patterns/black-paper.png');
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff0000;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0 #000;
+    position: relative;
+    display: inline-block;
+}
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #ff0000;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+.logo span {
+    color: #fff;
+}
+
+.logo:hover::after {
+    transform: scaleX(1);
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+    position: relative;
+}
+
+.nav-links li::before {
+    content: '//';
+    color: #ff0000;
+    position: absolute;
+    left: -15px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #ff0000;
+}
+header {
+    background-color: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 20px 0;
+    border-bottom: 2px solid #ff0000;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(45deg, 
+            transparent 45%, 
+            rgba(255,0,0,0.1) 45%, 
+            rgba(255,0,0,0.1) 55%, 
+            transparent 55%);
+    pointer-events: none;
+}
+.copyright {
+    border-top: 1px solid #ff0000;
+    padding-top: 20px;
+    color: #bbb;
+    position: relative;
+}
+
+.copyright::before {
+    content: '♫';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000;
+    padding: 0 10px;
+    color: #ff0000;
+}
+
+/* Анимации */
+@keyframes flicker {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+.flicker {
+    animation: flicker 3s infinite;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-text, 
+    .about-image {
+        padding: 20px 0;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+}
+/* Стили для превью-секции */
+.preview-section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #000;
+}
+
+.preview-images {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.preview-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.preview-image:hover {
+    transform: scale(1.03);
+}
+
+.catalog-button {
+    display: inline-block;
+    background-color: #ff0000;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid #ff0000;
+}
+
+.catalog-button:hover {
+    background-color: transparent;
+    color: #ff0000;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+}
+
+/* Адаптивность для превью */
+@media (max-width: 768px) {
+    .preview-images {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .preview-image {
+        max-width: 100%;
+    }
+    
+    .catalog-button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}

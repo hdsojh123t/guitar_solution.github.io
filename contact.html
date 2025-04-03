@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Электрогитары и примочки - О нас</title>
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        body {
+            background-color: #000;
+            color: #ddd;
+            line-height: 1.6;
+            background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-blend-mode: overlay;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Гранж эффекты */
+        .grunge-border {
+            position: relative;
+        }
+        
+        .grunge-border::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 14px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="14" viewBox="0 0 100 14"><path d="M0,0 Q25,14 50,0 T100,0" fill="none" stroke="%23ff0000" stroke-width="2" stroke-opacity="0.5"/></svg>');
+            background-repeat: repeat-x;
+        }
+        
+        .grunge-overlay {
+            background: 
+                linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('https://www.transparenttextures.com/patterns/black-paper.png');
+        }
+        
+        /* Шапка */
+        header {
+            background-color: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 20px 0;
+            border-bottom: 2px solid #ff0000;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, 
+                    transparent 45%, 
+                    rgba(255,0,0,0.1) 45%, 
+                    rgba(255,0,0,0.1) 55%, 
+                    transparent 55%);
+            pointer-events: none;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff0000;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0 #000;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #ff0000;
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .logo span {
+            color: #fff;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        .nav-links li::before {
+            content: '//';
+            color: #ff0000;
+            position: absolute;
+            left: -15px;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        
+        .nav-links a:hover {
+            color: #ff0000;
+        }
+        
+        /* Основной контент */
+        .about-section {
+            padding: 80px 0;
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            border: 1px solid #ff0000;
+            box-shadow: 0 0 20px rgba(255,0,0,0.3);
+            z-index: -1;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+            color: #fff;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: #ff0000;
+            margin: 15px auto;
+            box-shadow: 0 0 10px rgba(255,0,0,0.5);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 0 30px;
+        }
+        
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #ff0000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: -10px;
+            bottom: -10px;
+            border: 1px solid #ff0000;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border: 1px solid #ff0000;
+            filter: grayscale(30%) contrast(120%);
+            transition: all 0.5s;
+        }
+        
+        .about-image:hover img {
+            filter: grayscale(0%) contrast(100%);
+            transform: scale(1.02);
+        }
+        
+        /* Наша команда */
+        .team-section {
+            padding: 60px 0;
+            position: relative;
+        }
+        
+        .team-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            border: 1px solid #ff0000;
+            box-shadow: 0 0 20px rgba(255,0,0,0.3);
+            z-index: -1;
+        }
+        
+        .team-members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .team-member {
+            background: rgba(20,20,20,0.9);
+            border: 1px solid #ff0000;
+            position: relative;
+            overflow: hidden;
+            width: 280px;
+            transition: all 0.5s;
+        }
+        
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 45%, rgba(255,0,0,0.1) 45%, rgba(255,0,0,0.1) 55%, transparent 55%);
+            pointer-events: none;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255,0,0,0.3);
+        }
+        
+        .member-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+            filter: grayscale(50%) contrast(120%);
+        }
+        
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+            filter: grayscale(20%) contrast(100%);
+        }
+        
+        .member-info {
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .member-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: #ff0000;
+        }
+        
+        .member-info h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .member-info p {
+            color: #ff0000;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        /* Подвал */
+        footer {
+            background-color: rgba(0,0,0,0.9);
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 2px solid #ff0000;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, 
+                    transparent 45%, 
+                    rgba(255,0,0,0.05) 45%, 
+                    rgba(255,0,0,0.05) 55%, 
+                    transparent 55%);
+            pointer-events: none;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            padding: 0 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #ff0000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer-section p, 
+        .footer-section a {
+            color: #bbb;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #ff0000;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 20px;
+            color: #fff;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #ff0000;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            border-top: 1px solid #ff0000;
+            padding-top: 20px;
+            color: #bbb;
+            position: relative;
+        }
+        
+        .copyright::before {
+            content: '♫';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #000;
+            padding: 0 10px;
+            color: #ff0000;
+        }
+        
+        /* Анимации */
+        @keyframes flicker {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+        
+        .flicker {
+            animation: flicker 3s infinite;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text, 
+            .about-image {
+                padding: 20px 0;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="grunge-overlay">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Электрогитары<span> и примочки</span></a>
+                <ul class="nav-links">
+                    <li><a href="catalog.html#catalog">Каталог</a></li>
+                    <li><a href="contact.html">О нас</a></li>
+                    <li><a href="about.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- О нас -->
+    <section class="about-section grunge-overlay flicker">
+        <div class="container">
+            <h2 class="section-title grunge-border">О нашей компании</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Наша история</h3>
+                    <p>Компания "Электрогитары и примочки" была основана в 2010 году группой энтузиастов, которые хотели поделиться своей страстью к музыке и качественному оборудованию. Начиная с небольшого магазина в центре города, мы выросли в крупнейший онлайн-ритейлер музыкального оборудования в регионе.</p>
+                    <p>Наша миссия - предоставлять музыкантам лучшие инструменты и оборудование по доступным ценам, помогая им реализовывать свой творческий потенциал.</p>
+                    
+                    <h3>Наши ценности</h3>
+                    <p>Мы верим в качество, честность и преданность музыке. Каждый наш сотрудник - это музыкант, который понимает потребности наших клиентов и готов помочь подобрать идеальное оборудование для любых задач.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Гитарист в магазине">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Наша команда -->
+    <section class="team-section grunge-overlay">
+        <div class="container">
+            <h2 class="section-title grunge-border">Наша команда</h2>
+            <div class="team-members">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Алексей Петров">
+                    </div>
+                    <div class="member-info">
+                        <h3>Алексей Петров</h3>
+                        <p>Основатель, гитарист</p>
+                        <p>15 лет опыта в музыкальной индустрии</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Мария Иванова">
+                    </div>
+                    <div class="member-info">
+                        <h3>Мария Иванова</h3>
+                        <p>Менеджер по продажам</p>
+                        <p>Специалист по гитарным эффектам</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Дмитрий Смирнов">
+                    </div>
+                    <div class="member-info">
+                        <h3>Дмитрий Смирнов</h3>
+                        <p>Технический специалист</p>
+                        <p>Мастер по настройке и ремонту</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Подвал -->
+    <footer class="grunge-overlay">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>О компании</h3>
+                    <p>"Электрогитары и примочки" - это магазин для настоящих ценителей качественного музыкального оборудования.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>г. Москва, ул. Музыкальная, 15</p>
+                    <p>+7 (495) 123-45-67</p>
+                    <p>info@electroguitars.ru</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Социальные сети</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i> VK</a>
+                        <a href="#"><i class="fab fa-telegram"></i> Telegram</a>
+                        <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Электрогитары и примочки. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Иконки Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
