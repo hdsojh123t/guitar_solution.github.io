@@ -27,7 +27,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
         /* Гранж эффекты */
@@ -56,7 +56,7 @@
         header {
             background-color: rgba(0,0,0,0.8);
             color: #fff;
-            padding: 15px 0;
+            padding: 20px 0;
             border-bottom: 2px solid #ff0000;
             position: relative;
             overflow: hidden;
@@ -79,12 +79,12 @@
         }
         
         .logo {
-            font-size: 22px;
+            font-size: 28px;
             font-weight: bold;
             color: #ff0000;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-shadow: 2px 2px 0 #000;
             position: relative;
             display: inline-block;
@@ -123,7 +123,7 @@
         }
         
         .nav-links li {
-            margin-left: 20px;
+            margin-left: 30px;
             position: relative;
         }
         
@@ -131,13 +131,13 @@
             content: '//';
             color: #ff0000;
             position: absolute;
-            left: -10px;
+            left: -15px;
         }
         
         .nav-links a {
             color: #fff;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 18px;
             transition: color 0.3s;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -169,81 +169,18 @@
             font-weight: bold;
         }
         
-        /* Мобильное меню */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 1000;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        
-        .mobile-menu.active {
-            display: block;
-        }
-        
-        .mobile-menu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #ff0000;
-        }
-        
-        .close-mobile-menu {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 28px;
-            cursor: pointer;
-        }
-        
-        .mobile-nav-links {
-            list-style: none;
-        }
-        
-        .mobile-nav-links li {
-            margin-bottom: 20px;
-        }
-        
-        .mobile-nav-links a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: block;
-            padding: 10px 0;
-            border-bottom: 1px solid #333;
-        }
-        
         /* Корзина */
         .cart-modal {
             display: none;
             position: fixed;
             top: 0;
             right: 0;
-            width: 100%;
+            width: 400px;
             height: 100%;
             background: rgba(0,0,0,0.95);
             border-left: 2px solid #ff0000;
             z-index: 1000;
-            padding: 15px;
+            padding: 20px;
             overflow-y: auto;
             box-shadow: -5px 0 15px rgba(255,0,0,0.3);
         }
@@ -252,13 +189,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 1px solid #ff0000;
         }
         
         .cart-title {
-            font-size: 20px;
+            font-size: 24px;
             color: #fff;
             text-transform: uppercase;
         }
@@ -277,7 +214,7 @@
         }
         
         .cart-items {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .cart-item {
@@ -288,10 +225,10 @@
         }
         
         .cart-item-img {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             object-fit: cover;
-            margin-right: 10px;
+            margin-right: 15px;
             border: 1px solid #333;
         }
         
@@ -300,7 +237,7 @@
         }
         
         .cart-item-title {
-            font-size: 14px;
+            font-size: 16px;
             color: #fff;
             margin-bottom: 5px;
         }
@@ -309,7 +246,6 @@
             color: #ff0000;
             font-weight: bold;
             margin-bottom: 5px;
-            font-size: 14px;
         }
         
         .cart-item-quantity {
@@ -324,18 +260,17 @@
             width: 25px;
             height: 25px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 16px;
         }
         
         .quantity-input {
-            width: 30px;
+            width: 40px;
             text-align: center;
             background: #222;
             color: #fff;
             border: 1px solid #333;
             margin: 0 5px;
-            padding: 3px;
-            font-size: 14px;
+            padding: 5px;
         }
         
         .remove-item {
@@ -353,16 +288,16 @@
         }
         
         .cart-total {
-            margin-top: 15px;
-            padding-top: 15px;
+            margin-top: 20px;
+            padding-top: 20px;
             border-top: 1px solid #ff0000;
             text-align: right;
         }
         
         .total-price {
-            font-size: 18px;
+            font-size: 20px;
             color: #fff;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .total-price span {
@@ -374,7 +309,7 @@
             background: #ff0000;
             color: #fff;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 30px;
             width: 100%;
             font-size: 16px;
             font-weight: bold;
@@ -390,15 +325,15 @@
         
         .empty-cart {
             text-align: center;
-            padding: 30px 0;
+            padding: 40px 0;
             color: #777;
         }
         
         /* Форма оформления заказа */
         .checkout-form {
             display: none;
-            margin-top: 15px;
-            padding-top: 15px;
+            margin-top: 20px;
+            padding-top: 20px;
             border-top: 1px solid #333;
         }
         
@@ -433,11 +368,10 @@
             background: #333;
             color: #fff;
             border: none;
-            padding: 8px 15px;
+            padding: 10px 20px;
             margin-top: 10px;
             cursor: pointer;
             transition: all 0.3s;
-            font-size: 14px;
         }
         
         .back-to-cart:hover {
@@ -447,31 +381,30 @@
         .order-success {
             display: none;
             text-align: center;
-            padding: 30px 0;
+            padding: 40px 0;
         }
         
         .order-success h3 {
             color: #fff;
-            font-size: 20px;
-            margin-bottom: 15px;
+            font-size: 24px;
+            margin-bottom: 20px;
         }
         
         .order-success p {
             color: #bbb;
-            margin-bottom: 15px;
-            font-size: 14px;
+            margin-bottom: 20px;
         }
         
         .order-success-icon {
-            font-size: 40px;
+            font-size: 50px;
             color: #4CAF50;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         /* Основной контент */
         .catalog-section {
-            padding: 40px 0;
-            margin: 20px 0;
+            padding: 80px 0;
+            margin: 40px 0;
             position: relative;
         }
         
@@ -490,21 +423,21 @@
         
         .section-title {
             text-align: center;
-            margin-bottom: 30px;
-            font-size: 24px;
+            margin-bottom: 50px;
+            font-size: 36px;
             color: #fff;
             position: relative;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
         
         .section-title::after {
             content: '';
             display: block;
-            width: 80px;
-            height: 2px;
+            width: 100px;
+            height: 3px;
             background: #ff0000;
-            margin: 10px auto;
+            margin: 15px auto;
             box-shadow: 0 0 10px rgba(255,0,0,0.5);
         }
         
@@ -512,8 +445,8 @@
         .filters {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: 15px;
+            margin-bottom: 40px;
             justify-content: center;
         }
         
@@ -521,13 +454,12 @@
             background: rgba(30,30,30,0.8);
             border: 1px solid #333;
             color: #ddd;
-            padding: 6px 12px;
+            padding: 8px 20px;
             cursor: pointer;
             transition: all 0.3s;
             text-transform: uppercase;
             font-weight: bold;
             letter-spacing: 1px;
-            font-size: 12px;
         }
         
         .filter-btn:hover, .filter-btn.active {
@@ -539,9 +471,9 @@
         /* Товары */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
         }
         
         .product-card {
@@ -549,7 +481,7 @@
             border: 1px solid #ff0000;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s;
+            transition: all 0.5s;
         }
         
         .product-card::before {
@@ -564,12 +496,12 @@
         }
         
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 10px rgba(255,0,0,0.3);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255,0,0,0.3);
         }
         
         .product-image {
-            height: 120px;
+            height: 200px;
             overflow: hidden;
             position: relative;
         }
@@ -578,7 +510,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s;
+            transition: transform 0.5s;
             filter: grayscale(30%) contrast(120%);
         }
         
@@ -589,50 +521,50 @@
         
         .product-badge {
             position: absolute;
-            top: 5px;
-            right: 5px;
+            top: 10px;
+            right: 10px;
             background: #ff0000;
             color: #fff;
-            padding: 3px 6px;
-            font-size: 10px;
+            padding: 5px 10px;
+            font-size: 12px;
             font-weight: bold;
             text-transform: uppercase;
         }
         
         .product-info {
-            padding: 10px;
+            padding: 20px;
         }
         
         .product-title {
-            font-size: 14px;
-            margin-bottom: 5px;
+            font-size: 18px;
+            margin-bottom: 10px;
             color: #fff;
             text-transform: uppercase;
         }
         
         .product-brand {
             color: #ff0000;
-            font-size: 12px;
-            margin-bottom: 5px;
+            font-size: 14px;
+            margin-bottom: 10px;
             font-weight: bold;
         }
         
         .product-description {
             color: #bbb;
-            font-size: 12px;
-            margin-bottom: 10px;
-            line-height: 1.4;
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.5;
         }
         
         .product-price {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 10px;
+            margin-top: 15px;
         }
         
         .price {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: bold;
             color: #fff;
         }
@@ -640,20 +572,20 @@
         .old-price {
             text-decoration: line-through;
             color: #777;
-            font-size: 12px;
-            margin-right: 5px;
+            font-size: 16px;
+            margin-right: 10px;
         }
         
         .add-to-cart {
             background: #ff0000;
             color: #fff;
             border: none;
-            padding: 5px 10px;
+            padding: 8px 15px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
             text-transform: uppercase;
-            font-size: 12px;
+            font-size: 14px;
         }
         
         .add-to-cart:hover {
@@ -664,19 +596,17 @@
         .pagination {
             display: flex;
             justify-content: center;
-            margin-top: 30px;
-            gap: 5px;
-            flex-wrap: wrap;
+            margin-top: 50px;
+            gap: 10px;
         }
         
         .page-link {
             background: rgba(30,30,30,0.8);
             border: 1px solid #333;
             color: #ddd;
-            padding: 5px 10px;
+            padding: 8px 15px;
             cursor: pointer;
             transition: all 0.3s;
-            font-size: 14px;
         }
         
         .page-link:hover, .page-link.active {
@@ -689,7 +619,7 @@
         footer {
             background-color: rgba(0,0,0,0.9);
             color: #fff;
-            padding: 30px 0;
+            padding: 40px 0;
             text-align: center;
             border-top: 2px solid #ff0000;
             position: relative;
@@ -716,20 +646,20 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             position: relative;
         }
         
         .footer-section {
-            flex: 1 1 100%;
-            min-width: auto;
-            padding: 0 10px;
+            flex: 1;
+            min-width: 250px;
+            padding: 0 20px;
             margin-bottom: 20px;
         }
         
         .footer-section h3 {
-            font-size: 16px;
-            margin-bottom: 15px;
+            font-size: 20px;
+            margin-bottom: 20px;
             color: #ff0000;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -740,9 +670,8 @@
             color: #bbb;
             text-decoration: none;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             transition: color 0.3s;
-            font-size: 14px;
         }
         
         .footer-section a:hover {
@@ -751,8 +680,8 @@
         
         .social-links a {
             display: inline-block;
-            margin-right: 10px;
-            font-size: 18px;
+            margin-right: 15px;
+            font-size: 20px;
             color: #fff;
             transition: all 0.3s;
         }
@@ -764,10 +693,9 @@
         
         .copyright {
             border-top: 1px solid #ff0000;
-            padding-top: 15px;
+            padding-top: 20px;
             color: #bbb;
             position: relative;
-            font-size: 12px;
         }
         
         .copyright::before {
@@ -795,20 +723,18 @@
         /* Уведомление о добавлении в корзину */
         .cart-notification {
             position: fixed;
-            bottom: 15px;
-            right: 15px;
+            bottom: 20px;
+            right: 20px;
             background: rgba(0,0,0,0.9);
             color: #fff;
-            padding: 10px 15px;
+            padding: 15px 25px;
             border: 1px solid #ff0000;
             border-radius: 4px;
-            box-shadow: 0 0 15px rgba(255,0,0,0.3);
+            box-shadow: 0 0 20px rgba(255,0,0,0.3);
             transform: translateY(100px);
             opacity: 0;
             transition: all 0.3s;
             z-index: 1000;
-            font-size: 14px;
-            max-width: 80%;
         }
         
         .cart-notification.show {
@@ -817,64 +743,21 @@
         }
         
         /* Адаптивность */
-        @media (min-width: 576px) {
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
-            
-            .footer-section {
-                flex: 1 1 50%;
-            }
-        }
-        
-        @media (min-width: 768px) {
-            .mobile-menu-btn {
+        @media (max-width: 768px) {
+            .nav-links {
                 display: none;
             }
             
-            .nav-links {
-                display: flex;
+            .section-title {
+                font-size: 28px;
             }
             
             .products-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
             
-            .footer-section {
-                flex: 1;
-            }
-            
             .cart-modal {
-                width: 400px;
-            }
-        }
-        
-        @media (max-width: 767px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .logo {
-                font-size: 18px;
-            }
-            
-            .section-title {
-                font-size: 20px;
-            }
-            
-            .cart-item {
-                flex-direction: column;
-            }
-            
-            .cart-item-img {
                 width: 100%;
-                height: auto;
-                margin-right: 0;
-                margin-bottom: 10px;
             }
         }
     </style>
@@ -885,9 +768,6 @@
         <div class="container">
             <nav>
                 <a href="index.html" class="logo">Электрогитары<span> и примочки</span></a>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
                 <ul class="nav-links">
                     <li><a href="catalog.html#catalog">Каталог</a></li>
                     <li><a href="contact.html">О нас</a></li>
@@ -902,27 +782,6 @@
             </nav>
         </div>
     </header>
-    
-    <!-- Мобильное меню -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-header">
-            <div class="logo">Меню</div>
-            <button class="close-mobile-menu" id="closeMobileMenu">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <ul class="mobile-nav-links">
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="catalog.html#catalog">Каталог</a></li>
-            <li><a href="contact.html">О нас</a></li>
-            <li><a href="about.html">Контакты</a></li>
-            <li>
-                <a href="#" id="mobileCartBtn">
-                    <i class="fas fa-shopping-cart"></i> Корзина (<span id="mobileCartCount">0</span>)
-                </a>
-            </li>
-        </ul>
-    </div>
     
     <!-- Корзина -->
     <div class="cart-modal" id="cartModal">
@@ -1058,17 +917,17 @@
                 category: "guitars",
                 price: 199999,
                 oldPrice: 250000,
-                description: "Легендарная модель с тоном, который изменил историю музыки.",
+                description: "Легендарная модель с тоном, который изменил историю музыки. Корпус из красного дерева, топ из клена.",
                 image: "https://images.unsplash.com/photo-1558098329-a11cff621064?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
                 badge: "Хит"
             },
             {
                 id: 2,
-                title: "Fender Stratocaster",
+                title: "Fender Stratocaster American Pro",
                 brand: "Fender",
                 category: "guitars",
                 price: 145000,
-                description: "Классическая модель с тремя синглами и тремоло.",
+                description: "Классическая модель с тремя синглами и тремоло. Звук, который узнают миллионы.",
                 image: "https://images.unsplash.com/photo-1516924962500-2b4b3b99ea02?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
             },
             {
@@ -1078,7 +937,7 @@
                 category: "effects",
                 price: 5999,
                 oldPrice: 7500,
-                description: "Культовая педаль дисторшна.",
+                description: "Культовая педаль дисторшна, которая использовалась бесчисленным количеством гитаристов.",
                 image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
                 badge: "-20%"
             },
@@ -1088,7 +947,7 @@
                 brand: "Marshall",
                 category: "amps",
                 price: 120000,
-                description: "Легендарный ламповый усилитель.",
+                description: "Легендарный ламповый усилитель, который задал стандарт хард-рок и метал звучания.",
                 image: "https://images.unsplash.com/photo-1596727147705-61a532a659bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
             },
             {
@@ -1097,7 +956,7 @@
                 brand: "Ibanez",
                 category: "guitars",
                 price: 85000,
-                description: "Икона метал-сцены с тонким грифом.",
+                description: "Икона метал-сцены с тонким грифом и хамбакерами для агрессивного звучания.",
                 image: "https://images.unsplash.com/photo-1519682577862-22b62b24e493?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
             },
             {
@@ -1106,7 +965,7 @@
                 brand: "TC Electronic",
                 category: "effects",
                 price: 12500,
-                description: "Многофункциональная педаль задержки.",
+                description: "Многофункциональная педаль задержки с аналоговым, ленточным и цифровым режимами.",
                 image: "https://images.unsplash.com/photo-1615826932727-ed9f182ac67e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
             },
             {
@@ -1115,16 +974,52 @@
                 brand: "Ernie Ball",
                 category: "accessories",
                 price: 899,
-                description: "Набор струн Regular Slinky (.010-.046).",
+                description: "Набор струн Regular Slinky (.010-.046) - самый популярный выбор гитаристов.",
                 image: "https://images.unsplash.com/photo-1605020420620-20c943cc4669?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
             },
             {
                 id: 8,
-                title: "Dunlop Tortex Standard",
+                title: "Dunlop Tortex Standard 0.73mm",
                 brand: "Dunlop",
                 category: "accessories",
                 price: 150,
-                description: "Медиаторы Tortex Standard толщиной 0.73 мм.",
+                description: "Медиаторы Tortex Standard толщиной 0.73 мм с отличным сцеплением и долговечностью.",
+                image: "https://images.unsplash.com/photo-1605020420408-1d043841e881?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 9,
+                title: "PRS SE Custom 24",
+                brand: "PRS",
+                category: "guitars",
+                price: 95000,
+                description: "Отличное сочетание цены и качества с фирменными звукоснимателями PRS.",
+                image: "https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 10,
+                title: "Electro-Harmonix Big Muff Pi",
+                brand: "Electro-Harmonix",
+                category: "effects",
+                price: 6500,
+                description: "Культовая педаль фузза, которая определяла звук альтернативного рока 90-х.",
+                image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 11,
+                title: "Orange Crush 20",
+                brand: "Orange",
+                category: "amps",
+                price: 22500,
+                description: "Компактный транзисторный комбоусилитель с характерным оранжевым звучанием.",
+                image: "https://images.unsplash.com/photo-1596727147705-61a532a659bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                id: 12,
+                title: "Levy's Leathers Guitar Strap",
+                brand: "Levy's",
+                category: "accessories",
+                price: 3500,
+                description: "Кожаный ремень для гитары премиум-класса с регулируемой длиной.",
                 image: "https://images.unsplash.com/photo-1605020420408-1d043841e881?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
             }
         ];
@@ -1137,10 +1032,8 @@
         const cartModal = document.getElementById('cartModal');
         const cartItems = document.getElementById('cartItems');
         const cartCount = document.getElementById('cartCount');
-        const mobileCartCount = document.getElementById('mobileCartCount');
         const totalPrice = document.getElementById('totalPrice');
         const cartIcon = document.getElementById('cartIcon');
-        const mobileCartBtn = document.getElementById('mobileCartBtn');
         const closeCart = document.getElementById('closeCart');
         const filterBtns = document.querySelectorAll('.filter-btn');
         const checkoutBtn = document.getElementById('checkoutBtn');
@@ -1150,9 +1043,6 @@
         const orderSuccess = document.getElementById('orderSuccess');
         const closeAfterOrder = document.getElementById('closeAfterOrder');
         const cartNotification = document.getElementById('cartNotification');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const closeMobileMenu = document.getElementById('closeMobileMenu');
         
         // Инициализация при загрузке
         document.addEventListener('DOMContentLoaded', () => {
@@ -1161,14 +1051,11 @@
             
             // Обработчики событий
             cartIcon.addEventListener('click', toggleCart);
-            mobileCartBtn.addEventListener('click', toggleCart);
             closeCart.addEventListener('click', toggleCart);
             checkoutBtn.addEventListener('click', showCheckoutForm);
             backToCart.addEventListener('click', showCart);
             orderForm.addEventListener('submit', submitOrder);
             closeAfterOrder.addEventListener('click', closeCartAfterOrder);
-            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-            closeMobileMenu.addEventListener('click', toggleMobileMenu);
             
             // Фильтрация товаров
             filterBtns.forEach(btn => {
@@ -1253,7 +1140,6 @@
             
             updateCart();
             showCartNotification();
-            toggleMobileMenu(); // Закрываем мобильное меню после добавления в корзину
         }
         
         // Обновление корзины
@@ -1261,7 +1147,6 @@
             // Обновление счетчика
             const count = cart.reduce((sum, item) => sum + item.quantity, 0);
             cartCount.textContent = count;
-            mobileCartCount.textContent = count;
             
             // Обновление содержимого корзины
             if (cart.length === 0) {
@@ -1363,14 +1248,6 @@
         // Переключение видимости корзины
         function toggleCart() {
             cartModal.style.display = cartModal.style.display === 'block' ? 'none' : 'block';
-            if (mobileMenu.classList.contains('active')) {
-                toggleMobileMenu();
-            }
-        }
-        
-        // Переключение мобильного меню
-        function toggleMobileMenu() {
-            mobileMenu.classList.toggle('active');
         }
         
         // Показать форму оформления заказа
@@ -1390,13 +1267,28 @@
             orderSuccess.style.display = 'none';
         }
         
-        // Отправка заказа
-        function submitOrder(e) {
-            e.preventDefault();
+   // Отправка заказа
+function submitOrder(e) {
+    e.preventDefault();
+    
+    // Собираем данные формы
+    const formData = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        address: document.getElementById('address').value,
+        comment: document.getElementById('comment').value,
+        items: cart.map(item => `${item.title} (${item.quantity} шт.) - ${item.price.toLocaleString()} ₽`).join('\n'),
+        total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toLocaleString() + ' ₽',
+        order_date: new Date().toLocaleString()
+    };
+
+    // Отправка через EmailJS
+    emailjs.send('service_6qupcw8', 'template_ffw58jh', formData)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
             
-            // Здесь должна быть логика отправки заказа
-            // Для примера просто покажем сообщение об успехе
-            
+            // Показываем сообщение об успешном заказе
             checkoutForm.style.display = 'none';
             orderSuccess.style.display = 'block';
             
@@ -1404,7 +1296,11 @@
             cart = [];
             localStorage.removeItem('cart');
             updateCart();
-        }
+        }, function(error) {
+            console.log('FAILED...', error);
+            alert('Произошла ошибка при отправке заказа. Пожалуйста, попробуйте еще раз или свяжитесь с нами по телефону.');
+        });
+}
         
         // Закрыть корзину после оформления заказа
         function closeCartAfterOrder() {
@@ -1421,5 +1317,11 @@
             }, 3000);
         }
     </script>
+    <!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  // Инициализация EmailJS с вашим Public Key
+  emailjs.init('gk4NANl8xZxwMxjS-'); // Замените на ваш ключ из EmailJS
+</script>
 </body>
 </html>
