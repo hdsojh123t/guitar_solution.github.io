@@ -3,7 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Магазин электрогитар и гитарных эффектов. Широкий выбор профессиональных инструментов и аксессуаров.">
+    <meta name="keywords" content="электрогитары, гитарные эффекты, педали эффектов, музыкальные инструменты, купить гитару">
+    <meta name="author" content="Электрогитары и примочки">
+    
+    <!-- Для мобильных устройств -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Open Graph / Социальные сети -->
+    <meta property="og:title" content="Электрогитары и примочки - Магазин музыкальных инструментов">
+    <meta property="og:description" content="Лучший выбор электрогитар и гитарных эффектов в Москве">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hdsojh123t.github.io/guitar_solution/">
+    <meta property="og:image" content="https://hdsojh123t.github.io/guitar_solution/img/preview.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Электрогитары и примочки">
+    <meta name="twitter:description" content="Магазин профессиональных электрогитар и эффектов">
     <title>Электрогитары и примочки - Контакты</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Инициализация EmailJS при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            emailjs.init('gk4NANl8xZxwMxjS-'); // Замените на ваш публичный ключ из EmailJS
+        });
+    </script>
     <style>
         /* Общие стили */
         * {
@@ -559,10 +584,9 @@
                         </table>
                     </div>
                 </div>
-                
                 <div class="contact-form">
                     <h3>Напишите нам</h3>
-                    <form action="#" method="POST">
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Ваше имя</label>
                             <input type="text" id="name" name="name" class="form-control" required>
@@ -583,15 +607,59 @@
                             <textarea id="message" name="message" class="form-control" required></textarea>
                         </div>
                         
-                        <button type="submit" class="submit-btn">Отправить</button>
+                        <button type="submit" class="submit-btn" id="submitBtn">Отправить</button>
+                        
+                        <!-- Добавляем элемент для отображения статуса отправки -->
+                        <div id="formStatus" class="form-status"></div>
                     </form>
                 </div>
-            </div>
             
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.373789089737!2d37.61842331593095!3d55.75370398055287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5a738fa419%3A0x7c347d506f52311f!2z0JrRgNCw0YHQvdCw0Y8g0J_Qu9C-0YnQsNC00Yw!5e0!3m2!1sru!2sru!4v1620000000000!5m2!1sru!2sru" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
+                <!-- Остальная часть вашей разметки остается без изменений -->
+            
+                <script>
+                    document.getElementById('contactForm').addEventListener('submit', function(event) {
+                        event.preventDefault();
+                        
+                        const submitBtn = document.getElementById('submitBtn');
+                        const statusElement = document.getElementById('formStatus');
+                        
+                        // Показываем индикатор загрузки
+                        submitBtn.classList.add('loading');
+                        submitBtn.disabled = true;
+                        statusElement.style.display = 'none';
+                        
+                        // Получаем данные формы
+                        const formData = {
+                            from_name: this.name.value,
+                            from_email: this.email.value,
+                            subject: this.subject.value,
+                            message: this.message.value,
+                            date: new Date().toLocaleString()
+                        };
+                        
+                        // Отправляем письмо через EmailJS
+                        emailjs.send('service_6qupcw8', 'template_5lj62im', formData)
+                            .then(function(response) {
+                                // Успешная отправка
+                                statusElement.className = 'form-status success';
+                                statusElement.innerHTML = '<i class="fas fa-check-circle"></i> Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.';
+                                statusElement.style.display = 'block';
+                                
+                                // Очищаем форму
+                                document.getElementById('contactForm').reset();
+                            }, function(error) {
+                                // Ошибка при отправке
+                                statusElement.className = 'form-status error';
+                                statusElement.innerHTML = '<i class="fas fa-exclamation-circle"></i> Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз или свяжитесь с нами по телефону.';
+                                statusElement.style.display = 'block';
+                            })
+                            .finally(function() {
+                                // Убираем индикатор загрузки
+                                submitBtn.classList.remove('loading');
+                                submitBtn.disabled = false;
+                            });
+                    });
+                </script>
     </section>
     
     <!-- Подвал -->

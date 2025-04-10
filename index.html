@@ -3,8 +3,407 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Магазин электрогитар и гитарных эффектов. Широкий выбор профессиональных инструментов и аксессуаров.">
+    <meta name="keywords" content="электрогитары, гитарные эффекты, педали эффектов, музыкальные инструменты, купить гитару">
+    <meta name="author" content="Электрогитары и примочки">
+    
+    <!-- Для мобильных устройств -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Open Graph / Социальные сети -->
+    <meta property="og:title" content="Электрогитары и примочки - Магазин музыкальных инструментов">
+    <meta property="og:description" content="Лучший выбор электрогитар и гитарных эффектов в Москве">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hdsojh123t.github.io/guitar_solution/">
+    <meta property="og:image" content="https://hdsojh123t.github.io/guitar_solution/img/preview.jpg">
     <title>Электрогитары и примочки</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            padding: 0 10%;
+            box-sizing: border-box;
+        }
+
+        /* Шапка */
+        header {
+            background-color: rgba(0,0,0,0.8);
+            padding: 15px 0;
+            border-bottom: 2px solid #ff0000;
+            position: relative;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 150%;
+            color: #ff0000;
+            text-decoration: none;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 15px;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links li::before {
+            content: '//';
+            color: #ff0000;
+            position: absolute;
+            left: -10px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Герой-секция */
+        .hero-section {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://media1.tenor.com/m/ql7G2UkhARAAAAAC/plucking-a-guitar-red-hot-chili-peppers.gif') no-repeat center center;
+            background-size: cover;
+            padding: 0 15px;
+        }
+
+        .h1 {
+            font-size: 2rem;
+            color: #ff0000;
+            margin-bottom: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .h2 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Слайдер */
+        .preview-section {
+            padding: 30px 15px;
+            text-align: center;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 0 5px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slide-image-container {
+            width: 100%;
+            height: 200px; /* Фиксированная высота для всех изображений */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            background-color: #222;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Обеспечивает заполнение контейнера с сохранением пропорций */
+            transition: transform 0.3s ease;
+        }
+
+        .slide:hover img {
+            transform: scale(1.05);
+        }
+
+        .slide-caption {
+            margin-top: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            color: #fff;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 10px;
+            box-sizing: border-box;
+            pointer-events: none;
+        }
+
+        .slider-button {
+            background: rgba(255, 255, 255, 0.8);
+            color: #333;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .slider-button:hover {
+            background: rgba(255, 0, 0, 0.8);
+            color: white;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #555;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: #fff;
+            transform: scale(1.2);
+        }
+
+        /* Кнопка каталога */
+        .catalog-button {
+            display: inline-block;
+            background-color: #ff0000;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 20px;
+            border: 2px solid #ff0000;
+            transition: all 0.3s;
+        }
+
+        .catalog-button:hover {
+            background-color: transparent;
+            color: #ff0000;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: rgba(0,0,0,0.9);
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 2px solid #ff0000;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .footer-section {
+            padding: 0 15px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            color: #ff0000;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .footer-section p, 
+        .footer-section a {
+            color: #bbb;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ff0000;
+        }
+
+        .copyright {
+            border-top: 1px solid #ff0000;
+            padding-top: 20px;
+            margin-top: 20px;
+            color: #bbb;
+            font-size: 12px;
+            position: relative;
+        }
+
+        .copyright::before {
+            content: '♫';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #000;
+            padding: 0 10px;
+            color: #ff0000;
+        }
+
+        /* Адаптация для планшетов */
+        @media (min-width: 768px) {
+            .h1 {
+                font-size: 3rem;
+            }
+            
+            .h2 {
+                font-size: 1.5rem;
+            }
+            
+            nav {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .logo {
+                margin-bottom: 0;
+            }
+            
+            .footer-content {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+            
+            .footer-section {
+                flex: 1;
+                min-width: 200px;
+            }
+            
+            .slide {
+                min-width: 50%;
+            }
+            
+            .slide-image-container {
+                height: 250px; /* Увеличиваем высоту для планшетов */
+            }
+        }
+
+        /* Адаптация для десктопов */
+        @media (min-width: 992px) {
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            
+            .hero-section {
+                height: 100vh;
+            }
+            
+            .h1 {
+                font-size: 4rem;
+            }
+            
+            .slide {
+                min-width: calc(100% / 3);
+            }
+            
+            .slide-image-container {
+                height: 300px; /* Увеличиваем высоту для десктопов */
+            }
+            
+            .slide.side .slide-image-container {
+                opacity: 0.6;
+                transform: scale(0.9);
+                filter: brightness(0.7);
+            }
+
+            .slide.center .slide-image-container {
+                opacity: 1;
+                transform: scale(1.05);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="grunge-overlay">
@@ -28,10 +427,56 @@
     
     <!-- Блок с превью товаров -->
     <div class="preview-section">
-        <div class="preview-images">
-            <img src="guitar-preview.jpg" alt="Гитары" class="preview-image">
-            <img src="pedals-preview.jpg" alt="Примочки" class="preview-image">
+        <div class="slider-container">
+            <div class="slider-wrapper">
+                <div class="slider">
+                    <div class="slide">
+                        <div class="slide-image-container">
+                            <img src="slide2.jpg" alt="Гитара 1">
+                        </div>
+                        <div class="slide-caption">Профессиональные гитары</div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-image-container">
+                            <img src="guitar6.jpg" alt="Гитара 2">
+                        </div>
+                        <div class="slide-caption">Эксклюзивные модели</div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-image-container">
+                            <img src="slide1.jpg" alt="Гитара 3">
+                        </div>
+                        <div class="slide-caption">Лучшие материалы</div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-image-container">
+                            <img src="pedal1.jpg" alt="Педали 1">
+                        </div>
+                        <div class="slide-caption">Гитарные педали</div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-image-container">
+                            <img src="guitar1.jpg" alt="Педали 2">
+                        </div>
+                        <div class="slide-caption">Широкий выбор</div>
+                    </div>
+                </div>
+                
+                <div class="slider-nav">
+                    <button class="slider-button prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-button next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="slider-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
         </div>
+        
         <a href="catalog.html" class="catalog-button">Перейти в каталог</a>
     </div>
 
@@ -54,9 +499,9 @@
                 <div class="footer-section">
                     <h3>Социальные сети</h3>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-vk"></i> VK</a>
-                        <a href="#"><i class="fab fa-telegram"></i> Telegram</a>
-                        <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                        <a href="https://vk.com/"><i class="fab fa-vk"></i></a>
+                        <a href="https://web.telegram.org/"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
@@ -67,6 +512,93 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            
+            let currentSlide = 0;
+            const slideCount = slides.length;
+            
+            // Адаптивное количество видимых слайдов
+            function getVisibleSlides() {
+                if (window.innerWidth >= 992) return 3;
+                if (window.innerWidth >= 768) return 2;
+                return 1;
+            }
+            
+            // Обновление позиции слайдера
+            function updateSlider() {
+                const visibleSlides = getVisibleSlides();
+                const offset = -currentSlide * (100 / visibleSlides);
+                slider.style.transform = `translateX(${offset}%)`;
+                
+                // Обновление активных точек
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+                
+                // Обновление классов для визуального выделения центрального слайда
+                slides.forEach((slide, index) => {
+                    slide.classList.remove('center', 'side');
+                    if (window.innerWidth >= 992) {
+                        if (index === currentSlide + 1) {
+                            slide.classList.add('center');
+                        } else if (index === currentSlide || index === currentSlide + 2) {
+                            slide.classList.add('side');
+                        }
+                    }
+                });
+            }
+            
+            // Переход к следующему слайду
+            function nextSlide() {
+                const visibleSlides = getVisibleSlides();
+                currentSlide = (currentSlide + 1) % (slideCount - visibleSlides + 1);
+                updateSlider();
+            }
+            
+            // Переход к предыдущему слайду
+            function prevSlide() {
+                const visibleSlides = getVisibleSlides();
+                currentSlide = (currentSlide - 1 + (slideCount - visibleSlides + 1)) % (slideCount - visibleSlides + 1);
+                updateSlider();
+            }
+            
+            // Обработчики событий
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // Клик по точкам
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSlider();
+                });
+            });
+            
+            // Автоматическое перелистывание
+            let slideInterval = setInterval(nextSlide, 5000);
+            
+            // Остановка при наведении
+            const sliderContainer = document.querySelector('.slider-container');
+            sliderContainer.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            sliderContainer.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+            
+            // Адаптация при изменении размера окна
+            window.addEventListener('resize', updateSlider);
+            
+            // Инициализация
+            updateSlider();
+        });
+    </script>
 </body>
 </html>
